@@ -85,7 +85,7 @@ app.post("/blogs", auth, async (req, res) => {
   }
 });
 
-app.put("/blogs/:id", authenticate, async (req, res) => {
+app.put("/blogs/:id", auth, async (req, res) => {
   try {
     const { id } = req.params;
     const { title, description } = req.body;
@@ -100,7 +100,7 @@ app.put("/blogs/:id", authenticate, async (req, res) => {
   }
 });
 
-app.delete("/blogs/:id", authenticate, async (req, res) => {
+app.delete("/blogs/:id", auth, async (req, res) => {
   try {
     const { id } = req.params;
     await Blog.findByIdAndDelete(id);
